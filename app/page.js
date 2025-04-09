@@ -29,15 +29,16 @@ export default function Home() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center"
+      className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center font-mono"
     >
       <div className="max-w-4xl w-full">
         <motion.h1 
           initial={{ y: -20 }}
           animate={{ y: 0 }}
-          className="text-4xl font-bold text-center text-gray-900 mb-12"
+          className="text-4xl font-bold text-center text-green-500 mb-12 pixel-text"
+          style={{ textShadow: '0 0 10px #4ade80' }}
         >
-          Username Availability Checker
+          USERNAME_CHECKER.exe
         </motion.h1>
         
         <motion.div 
@@ -47,66 +48,99 @@ export default function Home() {
         >
           <input
             type="text"
-            placeholder="Enter username"
+            placeholder="ENTER_USERNAME"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="flex-1 max-w-md px-6 py-3 border border-gray-300 rounded-xl shadow-sm text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+            className="flex-1 max-w-md px-6 py-3 border-2 border-green-500 rounded-none bg-black text-green-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 uppercase"
           />
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, textShadow: '0 0 8px #4ade80' }}
             whileTap={{ scale: 0.95 }}
             onClick={checkUsername}
             disabled={loading}
-            className={`px-8 py-3 rounded-xl text-white font-medium shadow-md transition-all duration-300 ${
+            className={`px-8 py-3 border-2 text-green-500 font-medium transition-all duration-300 ${
               loading
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
+                ? "border-gray-600 text-gray-600 cursor-not-allowed"
+                : "border-green-500 hover:bg-green-500 hover:text-black"
             }`}
           >
             {loading ? (
               <span className="flex items-center justify-center">
-                <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
-                </svg>
-                Checking...
+                EXECUTING...
               </span>
             ) : (
-              "Check"
+              "EXECUTE"
             )}
           </motion.button>
         </motion.div>
 
+          {loading && (
         <AnimatePresence>
-          {availableSites.length > 0 && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-xl shadow-lg p-8"
+              className="border-2 border-green-500 p-6 bg-black mb-8"
+              >
+              <div className="space-y-4">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center text-green-500"
+                  >
+                  <span className="mr-2">▶</span>
+                  <span>Initializing scan sequence...</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                  className="flex items-center text-green-500"
+                  >
+                  <span className="mr-2">▶</span>
+                  <span>Scanning databases...</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.8 }}
+                  className="flex items-center text-green-500"
+                  >
+                  <span className="mr-2">▶</span>
+                  <span>Cross-referencing platforms...</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 1.2 }}
+                  className="flex items-center text-green-500"
+                  >
+                  <span className="mr-2">▶</span>
+                  <span>Analyzing results...</span>
+                </motion.div>
+              </div>
+            </motion.div>
+        </AnimatePresence>
+
+)}
+        <AnimatePresence>
+          {availableSites.length > 0 && (
+            <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="border-2 border-green-500 p-8 bg-black"
             >
+              {/* Rest of the availableSites display code remains the same */}
               <div className="flex justify-center">
                 <div className="relative">
-                  {/* Root node */}
-                  <div className="bg-blue-500 text-white p-4 rounded-lg shadow-md mb-4 text-center">
+                  <div className="border-2 border-green-500 text-green-500 p-4 mb-4 text-center">
                     <h2 className="text-xl font-semibold">{username}</h2>
                   </div>
                   
-                  {/* Vertical line from root */}
-                  <div className="w-1 h-8 bg-blue-300 mx-auto"></div>
+                  <div className="w-1 h-8 bg-green-500 mx-auto"></div>
                   
-                  {/* Sites container */}
                   <div className="grid grid-cols-1 gap-6 relative">
                     {availableSites.map((site, index) => (
                       <motion.div
@@ -116,18 +150,16 @@ export default function Home() {
                         transition={{ delay: index * 0.1 }}
                         className="relative"
                       >
-                        {/* Horizontal branch line */}
-                        <div className="absolute -top-3 left-1/2 w-8 h-1 bg-blue-300"></div>
+                        <div className="absolute -top-3 left-1/2 w-8 h-1 bg-green-500"></div>
                         
-                        {/* Site box */}
-                        <div className="bg-white border-2 border-blue-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                          <h3 className="font-medium text-gray-800 mb-2">{site.siteName}</h3>
+                        <div className="border-2 border-green-500 p-4 hover:bg-green-500 hover:text-black transition-all duration-300">
+                          <h3 className="font-medium text-green-500 mb-2 hover:text-black">{site.siteName}</h3>
                           <motion.a
                             whileHover={{ x: 5 }}
                             href={site.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-600 hover:text-blue-800 hover:underline text-sm block"
+                            className="text-green-400 hover:text-black text-sm block"
                           >
                             {site.url}
                           </motion.a>
@@ -147,10 +179,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-red-50 border border-red-200 rounded-xl p-6 mt-4 shadow-md"
+              className="border-2 border-red-500 p-6 mt-4 bg-black"
             >
-              <p className="text-red-600 text-center text-lg">
-                ❌ Username not found on any site.
+              <p className="text-red-500 text-center text-lg">
+                ERROR: USERNAME_NOT_FOUND
               </p>
             </motion.div>
           )}
