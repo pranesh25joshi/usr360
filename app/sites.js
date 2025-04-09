@@ -19,174 +19,174 @@ const sites = {
    "urlProbe": "https://imginn.com/{}",
    "username_claimed": "instagram"
  },
-//  "Twitter": {
-//    "errorMsg": [
-//      "<div class=\"error-panel\"><span>User ",
-//      "<title>429 Too Many Requests</title>"
-//    ],
-//    "errorType": "message",
-//    "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
-//    "url": "https://x.com/{}",
-//    "urlMain": "https://x.com/",
-//     "urlProbe": "https://nitter.privacydev.net/{}",
-//    "username_claimed": "blue"
-//  },
-//   "Facebook": {
-//        "errorType": "status_code",
-//        "url": "https://www.facebook.com/{}",
-//        "urlMain": "https://www.facebook.com/",
-//        "username_claimed": "facebook"
-//      },
-//    "Reddit": {
-//      "errorMsg": "Sorry, nobody on Reddit goes by that name.",
-//      "errorType": "message",
-//      "headers": {
-//        "accept-language": "en-US,en;q=0.9"
-//      },
-//      "url": "https://www.reddit.com/user/{}",
-//      "urlMain": "https://www.reddit.com/",
-//      "username_claimed": "blue"
-//    },
-//   "TikTok": {
-//      "errorType": "status_code",
-//      "url": "https://www.tiktok.com/@{}",
-//      "urlMain": "https://www.tiktok.com/",
-//      "username_claimed": "tiktok"
-//   },
-//    "LinkedIn": {
-//    "errorType": "status_code",
-//    "regexCheck": "^[a-zA-Z0-9]{3,100}$",
-//    "request_method": "GET",
-//    "url": "https://linkedin.com/in/{}",
-//    "urlMain": "https://linkedin.com",
-//    "username_claimed": "paulpfeister"
-//  },
-//   "Twitch": {
-//      "errorType": "status_code",
-//      "url": "https://www.twitch.tv/{}",
-//       "urlMain": "https://www.twitch.tv/",
-//      "username_claimed": "blue"
-//    },
-//  "Spotify": {
-//        "errorType": "status_code",
-//        "url": "https://open.spotify.com/user/{}",
-//        "urlMain": "https://open.spotify.com/",
-//        "username_claimed": "blue"
-//   },
-//    "Discord": {
-//      "errorType": "message",
-//      "url": "https://discord.com",
-//      "urlMain": "https://discord.com/",
-//      "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
-//      "errorMsg": [
-//        "{\"taken\":false}",
-//        "The resource is being rate limited"
-//      ],
-//      "request_method": "POST",
-//      "request_payload": {
-//        "username": "{}"
-//      },
-//      "headers": {
-//        "Content-Type": "application/json"
-//      },
-//      "username_claimed": "blue"
-//    },
-//    "GitHub": {
-//      "errorType": "status_code",
-//      "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
-//      "url": "https://www.github.com/{}",
-//      "urlMain": "https://www.github.com/",
-//      "username_claimed": "blue"
-//    },
-//  "Codeforces": {
-//      "errorType": "status_code",
-//      "url": "https://codeforces.com/profile/{}",
-//      "urlMain": "https://codeforces.com/",
-//      "urlProbe": "https://codeforces.com/api/user.info?handles={}",
-//      "username_claimed": "tourist"
-//    },
-//   "HackerNews": {
-//      "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
-//      "errorMsg": [
-//        "No such user.",
-//        "Sorry."
-//      ],
-//      "errorType": "message",
-//      "url": "https://news.ycombinator.com/user?id={}",
-//      "urlMain": "https://news.ycombinator.com/",
-//      "username_claimed": "blue"
-//    },
-// "Codecademy": {
-//      "errorMsg": "This profile could not be found",
-//      "errorType": "message",
-//      "url": "https://www.codecademy.com/profiles/{}",
-//      "urlMain": "https://www.codecademy.com/",
-//      "username_claimed": "blue"
-//    },
-// "BitBucket": {
-//      "errorType": "status_code",
-//      "regexCheck": "^[a-zA-Z0-9-_]{1,30}$",
-//      "url": "https://bitbucket.org/{}/",
-//      "urlMain": "https://bitbucket.org/",
-//      "username_claimed": "white"
-//    },
-//    "GitLab": {
-//      "errorMsg": "[]",
-//      "errorType": "message",
-//      "url": "https://gitlab.com/{}",
-//      "urlMain": "https://gitlab.com/",
-//      "urlProbe": "https://gitlab.com/api/v4/users?username={}",
-//      "username_claimed": "blue"
-//    },
-//   "StackOverflow": {
-//      "errorType": "status_code",
-//      "url": "https://stackoverflow.com/users/{}",
-//       "urlMain": "https://stackoverflow.com/",
-//      "username_claimed": "blue"
-//  },
-//  "FreeCodeCamp": {
-//        "errorType": "status_code",
-//        "url": "https://www.freecodecamp.org/{}",
-//        "urlMain": "https://www.freecodecamp.org/",
-//        "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
-//        "username_claimed": "naveennamani"
-//    },
-//   "CodePen": {
-//        "errorType": "status_code",
-//        "url": "https://codepen.io/{}",
-//        "urlMain": "https://codepen.io/",
-//         "username_claimed": "blue"
-//  },
-//    "HackerRank": {
-//      "errorMsg": "Something went wrong",
-//      "errorType": "message",
-//      "regexCheck": "^[^.]*?$",
-//      "url": "https://hackerrank.com/{}",
-//      "urlMain": "https://hackerrank.com/",
-//      "username_claimed": "satznova"
-//    },
-//    "LeetCode": {
-//      "errorType": "status_code",
-//      "url": "https://leetcode.com/{}",
-//      "urlMain": "https://leetcode.com/",
-//      "username_claimed": "blue"
-//    },
-//   "TryHackMe": {
-//        "errorMsg": "{\"success\":false}",
-//        "errorType": "message",
-//        "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
-//        "url": "https://tryhackme.com/p/{}",
-//        "urlMain": "https://tryhackme.com/",
-//        "urlProbe": "https://tryhackme.com/api/user/exist/{}",
-//        "username_claimed": "ashu"
-//      },
-//  "Codechef": {
-//      "errorType": "response_url",
-//      "errorUrl": "https://www.codechef.com/",
-//      "url": "https://www.codechef.com/users/{}",
-//      "urlMain": "https://www.codechef.com/",
-//      "username_claimed": "blue"
-//    },
+ "Twitter": {
+   "errorMsg": [
+     "<div class=\"error-panel\"><span>User ",
+     "<title>429 Too Many Requests</title>"
+   ],
+   "errorType": "message",
+   "regexCheck": "^[a-zA-Z0-9_]{1,15}$",
+   "url": "https://x.com/{}",
+   "urlMain": "https://x.com/",
+    "urlProbe": "https://nitter.privacydev.net/{}",
+   "username_claimed": "blue"
+ },
+  "Facebook": {
+       "errorType": "status_code",
+       "url": "https://www.facebook.com/{}",
+       "urlMain": "https://www.facebook.com/",
+       "username_claimed": "facebook"
+     },
+   "Reddit": {
+     "errorMsg": "Sorry, nobody on Reddit goes by that name.",
+     "errorType": "message",
+     "headers": {
+       "accept-language": "en-US,en;q=0.9"
+     },
+     "url": "https://www.reddit.com/user/{}",
+     "urlMain": "https://www.reddit.com/",
+     "username_claimed": "blue"
+   },
+  "TikTok": {
+     "errorType": "status_code",
+     "url": "https://www.tiktok.com/@{}",
+     "urlMain": "https://www.tiktok.com/",
+     "username_claimed": "tiktok"
+  },
+   "LinkedIn": {
+   "errorType": "status_code",
+   "regexCheck": "^[a-zA-Z0-9]{3,100}$",
+   "request_method": "GET",
+   "url": "https://linkedin.com/in/{}",
+   "urlMain": "https://linkedin.com",
+   "username_claimed": "paulpfeister"
+ },
+  "Twitch": {
+     "errorType": "status_code",
+     "url": "https://www.twitch.tv/{}",
+      "urlMain": "https://www.twitch.tv/",
+     "username_claimed": "blue"
+   },
+ "Spotify": {
+       "errorType": "status_code",
+       "url": "https://open.spotify.com/user/{}",
+       "urlMain": "https://open.spotify.com/",
+       "username_claimed": "blue"
+  },
+   "Discord": {
+     "errorType": "message",
+     "url": "https://discord.com",
+     "urlMain": "https://discord.com/",
+     "urlProbe": "https://discord.com/api/v9/unique-username/username-attempt-unauthed",
+     "errorMsg": [
+       "{\"taken\":false}",
+       "The resource is being rate limited"
+     ],
+     "request_method": "POST",
+     "request_payload": {
+       "username": "{}"
+     },
+     "headers": {
+       "Content-Type": "application/json"
+     },
+     "username_claimed": "blue"
+   },
+   "GitHub": {
+     "errorType": "status_code",
+     "regexCheck": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+     "url": "https://www.github.com/{}",
+     "urlMain": "https://www.github.com/",
+     "username_claimed": "blue"
+   },
+ "Codeforces": {
+     "errorType": "status_code",
+     "url": "https://codeforces.com/profile/{}",
+     "urlMain": "https://codeforces.com/",
+     "urlProbe": "https://codeforces.com/api/user.info?handles={}",
+     "username_claimed": "tourist"
+   },
+  "HackerNews": {
+     "__comment__": "First errMsg invalid, second errMsg rate limited. Not ideal. Adjust for better rate limit filtering.",
+     "errorMsg": [
+       "No such user.",
+       "Sorry."
+     ],
+     "errorType": "message",
+     "url": "https://news.ycombinator.com/user?id={}",
+     "urlMain": "https://news.ycombinator.com/",
+     "username_claimed": "blue"
+   },
+"Codecademy": {
+     "errorMsg": "This profile could not be found",
+     "errorType": "message",
+     "url": "https://www.codecademy.com/profiles/{}",
+     "urlMain": "https://www.codecademy.com/",
+     "username_claimed": "blue"
+   },
+"BitBucket": {
+     "errorType": "status_code",
+     "regexCheck": "^[a-zA-Z0-9-_]{1,30}$",
+     "url": "https://bitbucket.org/{}/",
+     "urlMain": "https://bitbucket.org/",
+     "username_claimed": "white"
+   },
+   "GitLab": {
+     "errorMsg": "[]",
+     "errorType": "message",
+     "url": "https://gitlab.com/{}",
+     "urlMain": "https://gitlab.com/",
+     "urlProbe": "https://gitlab.com/api/v4/users?username={}",
+     "username_claimed": "blue"
+   },
+  "StackOverflow": {
+     "errorType": "status_code",
+     "url": "https://stackoverflow.com/users/{}",
+      "urlMain": "https://stackoverflow.com/",
+     "username_claimed": "blue"
+ },
+ "FreeCodeCamp": {
+       "errorType": "status_code",
+       "url": "https://www.freecodecamp.org/{}",
+       "urlMain": "https://www.freecodecamp.org/",
+       "urlProbe": "https://api.freecodecamp.org/api/users/get-public-profile?username={}",
+       "username_claimed": "naveennamani"
+   },
+  "CodePen": {
+       "errorType": "status_code",
+       "url": "https://codepen.io/{}",
+       "urlMain": "https://codepen.io/",
+        "username_claimed": "blue"
+ },
+   "HackerRank": {
+     "errorMsg": "Something went wrong",
+     "errorType": "message",
+     "regexCheck": "^[^.]*?$",
+     "url": "https://hackerrank.com/{}",
+     "urlMain": "https://hackerrank.com/",
+     "username_claimed": "satznova"
+   },
+   "LeetCode": {
+     "errorType": "status_code",
+     "url": "https://leetcode.com/{}",
+     "urlMain": "https://leetcode.com/",
+     "username_claimed": "blue"
+   },
+  "TryHackMe": {
+       "errorMsg": "{\"success\":false}",
+       "errorType": "message",
+       "regexCheck": "^[a-zA-Z0-9.]{1,16}$",
+       "url": "https://tryhackme.com/p/{}",
+       "urlMain": "https://tryhackme.com/",
+       "urlProbe": "https://tryhackme.com/api/user/exist/{}",
+       "username_claimed": "ashu"
+     },
+ "Codechef": {
+     "errorType": "response_url",
+     "errorUrl": "https://www.codechef.com/",
+     "url": "https://www.codechef.com/users/{}",
+     "urlMain": "https://www.codechef.com/",
+     "username_claimed": "blue"
+   },
 //      "Gitea": {
 //        "errorType": "status_code",
 //        "url": "https://gitea.com/{}",
