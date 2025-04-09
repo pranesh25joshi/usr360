@@ -12,9 +12,10 @@ export default function Home() {
     setLoading(true);
     setAvailableSites([]);
     try {
+      const lowercaseUsername = username.toLowerCase();
       const response = await fetch("/api/check", {
         method: "POST",
-        body: JSON.stringify({ username }),
+        body: JSON.stringify({ username: lowercaseUsername }),
       });
       const data = await response.json();
       setAvailableSites(data.available || []);
