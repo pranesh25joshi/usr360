@@ -219,14 +219,14 @@ const sites = {
 //        "urlMain": "https://www.artstation.com/",
 //        "username_claimed": "Blue"
 //    },
-//      "Medium": {
-//      "errorMsg": "<body",
-//      "errorType": "message",
-//      "url": "https://medium.com/@{}",
-//      "urlMain": "https://medium.com/",
-//      "urlProbe": "https://medium.com/feed/@{}",
-//      "username_claimed": "blue"
-//    },
+     "Medium": {
+     "errorMsg": "<body",
+     "errorType": "message",
+     "url": "https://medium.com/@{}",
+     "urlMain": "https://medium.com/",
+     "urlProbe": "https://medium.com/feed/@{}",
+     "username_claimed": "blue"
+   },
 //    "Pinterest": {
 //        "errorType": "status_code",
 //        "url": "https://www.pinterest.com/{}",
@@ -239,17 +239,17 @@ const sites = {
 //       "urlMain": "https://www.tumblr.com/",
 //       "username_claimed": "blue"
 //    },
-//  "Telegram": {
-//      "errorMsg": [
-//        "<title>Telegram Messenger</title>",
-//        "If you have <strong>Telegram</strong>, you can contact <a class=\"tgme_username_link\" href=\"tg://resolve?domain="
-//      ],
-//      "errorType": "message",
-//      "regexCheck": "^[a-zA-Z0-9_]{3,32}[^_]$",
-//      "url": "https://t.me/{}",
-//      "urlMain": "https://t.me/",
-//      "username_claimed": "blue"
-//    },
+ "Telegram": {
+     "errorMsg": [
+       "<title>Telegram Messenger</title>",
+       "If you have <strong>Telegram</strong>, you can contact <a class=\"tgme_username_link\" href=\"tg://resolve?domain="
+     ],
+     "errorType": "message",
+     "regexCheck": "^[a-zA-Z0-9_]{3,32}[^_]$",
+     "url": "https://t.me/{}",
+     "urlMain": "https://t.me/",
+     "username_claimed": "blue"
+   },
 //   "Imgur": {
 //      "errorType": "status_code",
 //      "url": "https://imgur.com/user/{}",
@@ -417,12 +417,12 @@ const sites = {
 //      "urlMain": "https://rateyourmusic.com/",
 //      "username_claimed": "blue"
 //    },
-//     "Replit.com": {
-//      "errorType": "status_code",
-//      "url": "https://replit.com/@{}",
-//      "urlMain": "https://replit.com/",
-//      "username_claimed": "blue"
-//    },
+    "Replit.com": {
+     "errorType": "status_code",
+     "url": "https://replit.com/@{}",
+     "urlMain": "https://replit.com/",
+     "username_claimed": "blue"
+   },
 //    "Disqus": {
 //      "errorType": "status_code",
 //      "url": "https://disqus.com/{}",
@@ -449,13 +449,13 @@ const sites = {
 //      "urlProbe": "https://trello.com/1/Members/{}",
 //      "username_claimed": "blue"
 //    },
-//    "Docker Hub": {
-//        "errorType": "status_code",
-//        "url": "https://hub.docker.com/u/{}/",
-//        "urlMain": "https://hub.docker.com/",
-//        "urlProbe": "https://hub.docker.com/v2/users/{}/",
-//        "username_claimed": "blue"
-//    },
+   "Docker Hub": {
+       "errorType": "status_code",
+       "url": "https://hub.docker.com/u/{}/",
+       "urlMain": "https://hub.docker.com/",
+       "urlProbe": "https://hub.docker.com/v2/users/{}/",
+       "username_claimed": "blue"
+   },
 //     "Sketchfab": {
 //        "errorType": "status_code",
 //        "url": "https://sketchfab.com/{}",
@@ -475,13 +475,13 @@ const sites = {
 //      "urlMain": "https://www.bandcamp.com/",
 //      "username_claimed": "blue"
 //      },
-//       "Pornhub": {
-//        "errorType": "status_code",
-//        "isNSFW": true,
-//        "url": "https://pornhub.com/users/{}",
-//        "urlMain": "https://pornhub.com/",
-//        "username_claimed": "blue"
-//    },
+      "Pornhub": {
+       "errorType": "status_code",
+       "isNSFW": true,
+       "url": "https://pornhub.com/users/{}",
+       "urlMain": "https://pornhub.com/",
+       "username_claimed": "blue"
+   },
 //     "Giphy": {
 //        "errorType": "message",
 //        "errorMsg": "<title> GIFs - Find & Share on GIPHY</title>",
@@ -573,14 +573,14 @@ const sites = {
 //       "urlMain": "https://last.fm/",
 //       "username_claimed": "blue"
 //     },
-//  "Snapchat": {
-//        "errorType": "status_code",
-//        "regexCheck": "^[a-z][a-z-_.]{3,15}",
-//        "request_method": "GET",
-//        "url": "https://www.snapchat.com/add/{}",
-//        "urlMain": "https://www.snapchat.com",
-//        "username_claimed": "teamsnapchat"
-//  },
+ "Snapchat": {
+       "errorType": "status_code",
+       "regexCheck": "^[a-z][a-z-_.]{3,15}",
+       "request_method": "GET",
+       "url": "https://www.snapchat.com/add/{}",
+       "urlMain": "https://www.snapchat.com",
+       "username_claimed": "teamsnapchat"
+ },
 //     "RuneScape": {
 //        "errorMsg": "{\"error\":\"NO_PROFILE\",\"loggedIn\":\"false\"}",
 //        "errorType": "message",
