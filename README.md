@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛰️ usr360 — Universal Social Reconnaissance
 
-## Getting Started
+> **Track down social media usernames across 400+ platforms**  
+> A powerful, open-source username reconnaissance tool for the modern web.
 
-First, run the development server:
+---
+
+## 🔍 What is usr360?
+
+**usr360** is a web-based OSINT tool that scans for a given username across hundreds of websites — including social platforms, developer networks, forums, and more.
+
+It gives you a 360° view of where a digital identity exists, making it perfect for:
+
+- 🕵️ OSINT analysts & researchers  
+- 🔐 Cybersecurity professionals  
+- 📣 Brand managers & influencers  
+- 🧠 Curious humans
+
+---
+
+## 💡 Features
+
+- 🔎 Search for a username across 400+ popular platforms  
+- 🧭 Displays confirmed platforms the username exists on  
+- ⚡ Ultra-fast concurrent scanning using `Promise.all` and Axios  
+- 🌐 Clickable profile links  
+- ✅ Clean, minimal React-based UI  
+- 🔌 Lightweight REST API backend
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend**: React + Next.js (App Router)
+- **Backend**: Node.js (API Routes)
+- **HTTP Requests**: Axios  
+- **Username Source**: Custom curated dataset of over 400 social networks
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/usr360.git
+cd usr360
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📡 API Usage
 
-## Learn More
+### `POST /api/check`
 
-To learn more about Next.js, take a look at the following resources:
+**Request Body:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "username": "elonmusk"
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Response:**
 
-## Deploy on Vercel
+```json
+{
+  "available": [
+    {
+      "siteName": "Twitter",
+      "available": true,
+      "url": "https://twitter.com/elonmusk"
+    }
+    // ...
+  ]
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Use Cases
+
+- ✅ Check username availability before registering  
+- 👮 Investigate impersonators or fake profiles  
+- 🔍 Perform digital footprint analysis  
+- 🧱 Build tools that map online identity presence
+
+---
+
+## ⚠️ Disclaimer
+
+This tool is meant strictly for **ethical, research, and educational purposes**.  
+Misuse of this tool for unethical tracking or harassment is strictly prohibited.  
+Please respect user privacy and platform policies.
+
+---
+
+## 🧭 Roadmap
+
+- [ ] Dark web profile scanning (.onion URLs)  
+- [ ] Historical username monitoring  
+- [ ] Email footprint mapping  
+- [ ] Job post tracking by company (LinkedIn, Hacker News)  
+- [ ] Profile activity alert system
+
+---
+
+## 👨‍💻 Maintainer
+
+Built with passion by **Young Master (Pranesh Joshi)**  
+Full-stack hacker • OSINT explorer • Builder @ Bhopal DAO
+
+---
+
+## ✨ Support & Contribute
+
+If you love this project:
+
+- ⭐ Star it on GitHub  
+- 🐦 Tweet it with `#usr360`  
+- 🔧 Submit issues or pull requests to help improve it
