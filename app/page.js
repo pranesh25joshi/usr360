@@ -16,7 +16,6 @@ export default function Home() {
         method: "POST",
         body: JSON.stringify({ username }),
       });
-
       const data = await response.json();
       setAvailableSites(data.available || []);
     } catch (error) {
@@ -26,148 +25,106 @@ export default function Home() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center font-mono"
+      className="min-h-screen bg-black text-green-500 py-8 px-3 sm:px-4 lg:px-6 flex items-center justify-center font-mono relative overflow-hidden" 
     >
-      <div className="max-w-4xl w-full">
-        <motion.h1 
+      {/* Background Matrix Flicker */}
+      <div className="absolute inset-0 z-0 opacity-5 select-none pointer-events-none animate-pulse bg-[radial-gradient(#00ff00_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      
+      <div className="relative z-10 max-w-3xl w-full">
+        
+        <motion.h1
           initial={{ y: -20 }}
           animate={{ y: 0 }}
-          className="text-4xl font-bold text-center text-green-500 mb-12 pixel-text"
-          style={{ textShadow: '0 0 10px #4ade80' }}
+          className="text-2xl font-bold text-center text-green-500 mb-8 tracking-widest uppercase" 
+          style={{ textShadow: "0 0 10px #00ff00" }}
         >
-          USERNAME_CHECKER.exe
+          ▓▓ USERNAME_CHECKER.exe ▓▓
         </motion.h1>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
-          className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center mb-8"
+          className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 justify-center mb-6"
         >
           <input
             type="text"
             placeholder="ENTER_USERNAME"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="flex-1 max-w-md px-6 py-3 border-2 border-green-500 rounded-none bg-black text-green-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300 uppercase"
+            className="flex-1 max-w-md px-4 py-2 border-2 border-green-500 rounded-none bg-black text-green-500 focus:ring-2 focus:ring-green-500 focus:border-transparent uppercase tracking-widest placeholder-green-600 text-sm" 
           />
           <motion.button
-            whileHover={{ scale: 1.05, textShadow: '0 0 8px #4ade80' }}
+            whileHover={{ scale: 1.05, textShadow: "0 0 8px #00ff00" }}
             whileTap={{ scale: 0.95 }}
             onClick={checkUsername}
             disabled={loading}
-            className={`px-8 py-3 border-2 text-green-500 font-medium transition-all duration-300 ${
+            className={`px-6 py-2 border-2 text-green-500 font-medium uppercase tracking-wide transition-all duration-300 text-sm ${
               loading
                 ? "border-gray-600 text-gray-600 cursor-not-allowed"
                 : "border-green-500 hover:bg-green-500 hover:text-black"
-            }`}
+            }`} 
           >
-            {loading ? (
-              <span className="flex items-center justify-center">
-                EXECUTING...
-              </span>
-            ) : (
-              "EXECUTE"
-            )}
+            {loading ? "EXECUTING..." : "EXECUTE"}
           </motion.button>
         </motion.div>
 
-          {loading && (
-        <AnimatePresence>
+        {loading && (
+          <AnimatePresence>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="border-2 border-green-500 p-6 bg-black mb-8"
-              >
-              <div className="space-y-4">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex items-center text-green-500"
-                  >
-                  <span className="mr-2">▶</span>
-                  <span>Initializing scan sequence...</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.4 }}
-                  className="flex items-center text-green-500"
-                  >
-                  <span className="mr-2">▶</span>
-                  <span>Scanning databases...</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.8 }}
-                  className="flex items-center text-green-500"
-                  >
-                  <span className="mr-2">▶</span>
-                  <span>Cross-referencing platforms...</span>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 1.2 }}
-                  className="flex items-center text-green-500"
-                  >
-                  <span className="mr-2">▶</span>
-                  <span>Analyzing results...</span>
-                </motion.div>
+              className="border-2 border-green-500 p-4 bg-black mb-6 font-mono tracking-tight" 
+            >
+              <div className="space-y-2 text-xs">
+                 
+                <p>▶ Booting up sequence...</p>
+                <p className="ml-2">↳ Accessing nodes...</p>
+                <p className="ml-3">↳ Deploying scanners...</p>
+                <p className="ml-4">↳ Tracing footprints...</p>
+                <p className="ml-5">↳ Compiling matches...</p>
               </div>
             </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        )}
 
-)}
         <AnimatePresence>
           {availableSites.length > 0 && (
-            <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="border-2 border-green-500 p-8 bg-black"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="border-2 border-green-500 p-4 bg-black" 
             >
-              {/* Rest of the availableSites display code remains the same */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="border-2 border-green-500 text-green-500 p-4 mb-4 text-center">
-                    <h2 className="text-xl font-semibold">{username}</h2>
-                  </div>
-                  
-                  <div className="w-1 h-8 bg-green-500 mx-auto"></div>
-                  
-                  <div className="grid grid-cols-1 gap-6 relative">
-                    {availableSites.map((site, index) => (
-                      <motion.div
-                        key={site.siteName}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="relative"
-                      >
-                        <div className="absolute -top-3 left-1/2 w-8 h-1 bg-green-500"></div>
-                        
-                        <div className="border-2 border-green-500 p-4 hover:bg-green-500 hover:text-black transition-all duration-300">
-                          <h3 className="font-medium text-green-500 mb-2 hover:text-black">{site.siteName}</h3>
-                          <motion.a
-                            whileHover={{ x: 5 }}
-                            href={site.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-400 hover:text-black text-sm block"
-                          >
-                            {site.url}
-                          </motion.a>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+              <div className="border border-green-500 p-3 text-center uppercase tracking-widest text-xs"> 
+                
+                Results for <span className="font-bold">{username}</span>
+              </div>
+
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3"> 
+                {availableSites.map((site, index) => (
+                  <motion.div
+                    key={site.siteName}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="border-2 border-green-500 hover:bg-green-500 hover:text-black transition duration-300 p-3"
+                  >
+                    <h3 className="text-base font-semibold">{site.siteName}</h3>
+                     
+                    <a
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-300 hover:text-black text-xs break-words"
+                    >
+                      {site.url}
+                    </a>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           )}
@@ -175,14 +132,15 @@ export default function Home() {
 
         <AnimatePresence>
           {!loading && availableSites.length === 0 && username && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="border-2 border-red-500 p-6 mt-4 bg-black"
+              className="border-2 border-red-500 p-4 mt-4 bg-black" 
             >
-              <p className="text-red-500 text-center text-lg">
-                ERROR: USERNAME_NOT_FOUND
+              <p className="text-red-500 text-center text-base font-mono">
+                 
+                ✖ USERNAME_NOT_FOUND
               </p>
             </motion.div>
           )}
